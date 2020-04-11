@@ -4,13 +4,33 @@
     </head>
     <body>
 
-        
+        <button id="button1">Clique-me</button>
+        <div id="app">
+            <div class="box"></div>
+        </div>
 
-        <button id="button1"></button>
+        
         <script>
             //Módulo 02
 
             //Exercício 01
+           
+            var buttonElement = document.querySelector('#button1')
+            var boxElement = document.querySelector('.box');
+
+            var i = 1;
+
+            buttonElement.onclick = function(){
+                
+                boxElement.textContent = i.toString();
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = '#f00';
+
+                i++;
+            }
+
+           
             
         </script>
     </body>
