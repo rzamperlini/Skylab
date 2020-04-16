@@ -4,18 +4,21 @@
     </head>
     <body>
 
-        <button id="button1">Clique-me</button>
+        <!-- <button id="button1">Clique-me</button>
         <div id="app">
             <div class="box"></div>
+        </div> -->
+
+        <div id="app">
+            <ul id="ulList"></ul>
         </div>
 
-        
         <script>
             //Módulo 02
 
-            //Exercício 01
+            //Exercício 01 
            
-            var buttonElement = document.querySelector('#button1')
+            /* var buttonElement = document.querySelector('#button1')
             var appElement = document.querySelector("#app");
             var i = 1;
 
@@ -56,11 +59,25 @@
                 color += letters[Math.floor(Math.random() * 16)];
                 }
                 return color;
-            }
-            
-           
+            } */
             
             
+            //Exercício 03
+
+            var nomes = ["Diego","Gabriel","Lucas"];
+            var appElement = document.querySelector("#app");
+            var ulElement = appElement.querySelector("#ulList");
+
+            console.log(ulElement);
+
+            nomes.forEach(nome => {
+                var liElement = document.createElement("li");
+                liElement.innerText = nome;
+                
+                ulElement.appendChild(liElement);
+            }); 
+
+
         </script>
     </body>
 </html>
