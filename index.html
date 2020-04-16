@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Curso Javascript</title>
     </head>
     <body>
@@ -10,13 +11,15 @@
         </div> -->
 
         <div id="app">
+            <input type="text" name="nome">
+            <button id="btnName">Submit</button>
             <ul id="ulList"></ul>
         </div>
 
         <script>
             //Módulo 02
 
-            //Exercício 01 
+            //Exercício 02
            
             /* var buttonElement = document.querySelector('#button1')
             var appElement = document.querySelector("#app");
@@ -64,7 +67,7 @@
             
             //Exercício 03
 
-            var nomes = ["Diego","Gabriel","Lucas"];
+            /* var nomes = ["Diego","Gabriel","Lucas"];
             var appElement = document.querySelector("#app");
             var ulElement = appElement.querySelector("#ulList");
 
@@ -76,8 +79,39 @@
                 
                 ulElement.appendChild(liElement);
             }); 
+            */
 
+            //Exercício 04
 
+            var nomes = ["Diego","Gabriel","Lucas"];
+            var inputElement = document.querySelector("input[name=nome]")
+            var btnName = document.querySelector("#btnName");
+            var appElement = document.querySelector("#app");
+            var ulElement = appElement.querySelector("#ulList");
+
+            nomes.forEach(nome => {
+                includeNameOnList(nome);
+            }); 
+
+            function includeNameOnList(name){
+                var liElement = document.createElement("li");
+                liElement.innerText = name;
+                
+                ulElement.appendChild(liElement);
+            }
+
+            btnName.onclick = function(){
+                var txtName = inputElement.value;
+
+                if(txtName !== null && txtName !== ""){
+                    includeNameOnList(txtName);
+                }
+                else{
+                    alert("Digite um nome.");
+                }
+            }
+
+            console.log(ulElement);
         </script>
     </body>
 </html>
