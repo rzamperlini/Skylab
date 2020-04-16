@@ -16,21 +16,50 @@
             //Exercício 01
            
             var buttonElement = document.querySelector('#button1')
-            var boxElement = document.querySelector('.box');
-
+            var appElement = document.querySelector("#app");
             var i = 1;
+
+            const BOX_WIDTH = 100;
+            const BOX_HEIGHT = 100;
+            const BOX_RED = "#f00";
+            const BOX_MARGIN_TOP = 10;
 
             buttonElement.onclick = function(){
                 
-                boxElement.textContent = i.toString();
-                boxElement.style.width = 100;
-                boxElement.style.height = 100;
-                boxElement.style.backgroundColor = '#f00';
+                
+                var newBoxElement = document.createElement("div");
+                newBoxElement.id = "box"+i;
+                newBoxElement.className = "box";
+                newBoxElement.textContent = i.toString();
+                newBoxElement.style.width = BOX_WIDTH;
+                newBoxElement.style.height = BOX_HEIGHT;
+                newBoxElement.style.backgroundColor = BOX_RED;
+                newBoxElement.style.marginTop = BOX_MARGIN_TOP;
+                
+                newBoxElement.onmouseover = function(){
+                    var newColor = getRandomColor();
+
+                    newBoxElement.style.backgroundColor = newColor;
+
+                }
+
+                appElement.appendChild(newBoxElement);
+                
 
                 i++;
             }
 
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            
            
+            
             
         </script>
     </body>
