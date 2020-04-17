@@ -19,10 +19,21 @@ function renderRepositories()
     }
 }
 
+function showLoadMessage()
+{
+    ulElement.innerHTML = ""; //clear list
+
+    var msgElement = document.createElement('li');
+    var msgText = document.createTextNode("Carregando...");
+    msgElement.appendChild(msgText);
+    ulElement.appendChild(msgElement);
+}
 
 buttonElement.onclick = function(){
 
     var usrText = inputElement.value;
+
+    showLoadMessage();
 
     axios.get('https://api.github.com/users/'+usrText+'/repos')
     .then(function(response){
@@ -39,13 +50,13 @@ buttonElement.onclick = function(){
         saveToStorage();
     })
     .catch(function(error){
-        console.log(error);
+        alert("O usuário não existe. " + error);
     })
 
 }
 
 function saveToStorage(){
-    localStorage.setItem('list_repos',reposList);
+    localStorage.setItem('list_repos',JSON.stringify(reposList));
 }
 
 
