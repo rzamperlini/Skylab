@@ -1,29 +1,33 @@
-//ES6+ Módulo 01 - Exercício 01
+//ES6+ Módulo 01 - Exercício 02
 
-class Usuario{
-    constructor(email,senha){
-        this.email = email;
-        this.senha = senha;
-        this.admin = false;
+const usuarios = [
+    { nome: 'Diego', idade: 23, empresa: 'Rocketseat' },
+    { nome: 'Gabriel', idade: 15, empresa: 'Rocketseat' },
+    { nome: 'Lucas', idade: 30, empresa: 'Facebook' },
+   ];
+
+const idades = usuarios.map(usuario => (usuario.idade));
+
+console.log(idades);
+
+const usrRocket = usuarios.filter(usuario => {
+    if(usuario.empresa === 'Rocketseat' && usuario.idade > 18){
+        return usuario;
     }
+})
 
-    isAdmin() {
-        return this.admin;
-    }
-}
+console.log(usrRocket);
 
-class Admin extends Usuario{
-    constructor(...params){
-        super(params[0],params[1]);
+const usrGoogle = usuarios.find(usuario  => usuario.empresa === 'Google');
 
-        this.admin = true;
-    }
-}
+console.log(usrGoogle);
 
-const user1 = new Usuario('email@teste.com', 'senha123');
-const adm1 = new Admin('email@teste.com','senha123');
+const result = usuarios.map(usuario => {
+                                usuario.idade *= 2;
+                                return usuario; })
+                        .filter(usuario => {
+                                if(usuario.idade < 50)
+                                    return usuario;});
 
-console.log(user1.isAdmin());
-console.log(user1);
-console.log(adm1.isAdmin());
-console.log(adm1);
+
+console.log(result);
