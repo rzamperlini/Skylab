@@ -1,3 +1,5 @@
+//REST operator
+
 const usuario = {
     nome:"Rodrigo",
     idade:41,
@@ -8,8 +10,37 @@ const usuario = {
     }
 }
 
-function mostraDados({nome, idade, endereco:{cidade}}){
-    console.log(nome, idade, cidade);
+const {nome, ...resto} = usuario;
+
+console.log(nome);
+console.log(resto);
+
+const arr = [1,2,3,4,5,6];
+
+const [a,b,c,...d] = arr;
+
+console.log(a);
+console.log(b);
+console.log(d);
+
+function sum(a, b, ...rest){
+
+    var total = rest.reduce((total,next)=> total + next );
+
+    return a + b + total;
 }
 
-mostraDados(usuario);
+console.log(sum(1,2,3,4,5));
+
+
+//SPREAD operator
+
+const usuario1= {
+    nome:"Diego",
+    idade: 23,
+    empresa: "Rocketseat"
+}
+
+const usuario2 = {...usuario1, nome:"Gabriel"};
+
+console.log(usuario2);
