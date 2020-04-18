@@ -1,12 +1,29 @@
-//Object short syntax
+//ES6+ Módulo 01 - Exercício 01
 
-const nome = "Rodrigo";
-const idade = 41;
+class Usuario{
+    constructor(email,senha){
+        this.email = email;
+        this.senha = senha;
+        this.admin = false;
+    }
 
-const usuario = {
-    nome,
-    idade,
-    empresa:"Placas do Brasil S.A"
+    isAdmin() {
+        return this.admin;
+    }
 }
 
-console.log(usuario);
+class Admin extends Usuario{
+    constructor(...params){
+        super(params[0],params[1]);
+
+        this.admin = true;
+    }
+}
+
+const user1 = new Usuario('email@teste.com', 'senha123');
+const adm1 = new Admin('email@teste.com','senha123');
+
+console.log(user1.isAdmin());
+console.log(user1);
+console.log(adm1.isAdmin());
+console.log(adm1);
