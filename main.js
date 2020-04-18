@@ -1,14 +1,15 @@
-const arr = [1,3,4,5,6];
+const usuario = {
+    nome:"Rodrigo",
+    idade:41,
+    endereco:{
+        rua:"Rua Tito Matos Loureiro.",
+        cidade:"Aracruz",
+        UF:"ES"
+    }
+}
 
-const newArr = arr.map(item => item * 2);
+function mostraDados({nome, idade, endereco:{cidade}}){
+    console.log(nome, idade, cidade);
+}
 
-console.log(newArr);
-
-const teste = () => ({nome:"Rodrigo"});
-
-console.log(teste());
-
-const soma = (a=3, b=6) => a + b;
-
-console.log(soma(1));
-console.log(soma());
+mostraDados(usuario);
