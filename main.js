@@ -1,6 +1,12 @@
-//Template literals
+//Object short syntax
 
 const nome = "Rodrigo";
 const idade = 41;
 
-console.log(`Meu nome é ${nome} e tenho ${idade} anos.`)
+const usuario = {
+    nome,
+    idade,
+    empresa:"Placas do Brasil S.A"
+}
+
+console.log(usuario);
