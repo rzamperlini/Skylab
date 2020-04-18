@@ -1,37 +1,51 @@
 "use strict";
 
-//ES6+ Módulo 01 - Exercício 02
-var usuarios = [{
-  nome: 'Diego',
-  idade: 23,
-  empresa: 'Rocketseat'
-}, {
-  nome: 'Gabriel',
-  idade: 15,
-  empresa: 'Rocketseat'
-}, {
-  nome: 'Lucas',
-  idade: 30,
-  empresa: 'Facebook'
-}];
-var idades = usuarios.map(function (usuario) {
-  return usuario.idade;
+//ES6+ Módulo 01 - Exercício 03
+// 3.1
+// const arr = [1, 2, 3, 4, 5];
+// const newArr = arr.map(function(item) {
+//  return item + 10;
+// });
+// console.log(newArr);
+// const aux1 = arr.map(item => item + 10);
+// console.log(aux1);
+// // 3.2
+// // Dica: Utilize uma constante pra function
+// const usuario = { nome: 'Diego', idade: 23 };
+// function mostraIdade(usuario) {
+//  return usuario.idade;
+// }
+// const idade = mostraIdade(usuario);
+// console.log(idade);
+// const aux2 = () =>  usuario.idade;
+// console.log(aux2());
+// 3.3
+// Dica: Utilize uma constante pra function
+
+/* const nome = "Diego";
+const idade = 23;
+function mostraUsuario(nome = 'Diego', idade = 18) {
+ return { nome, idade };
+}
+const user1 = mostraUsuario(nome, idade);
+const user2 = mostraUsuario(nome);
+
+console.log(user1);
+console.log(user2);
+
+const aux3 = (nome,idade=18) => ({nome:nome, idade:idade});
+console.log(aux3(nome,idade));
+console.log(aux3(nome));
+ */
+// 3.4
+var promise = function promise() {
+  return new Promise(function (resolve, reject) {
+    return resolve();
+  });
+};
+
+console.log(promise());
+var auxPromise = new Promise(function (resolve, reject) {
+  return resolve();
 });
-console.log(idades);
-var usrRocket = usuarios.filter(function (usuario) {
-  if (usuario.empresa === 'Rocketseat' && usuario.idade > 18) {
-    return usuario;
-  }
-});
-console.log(usrRocket);
-var usrGoogle = usuarios.find(function (usuario) {
-  return usuario.empresa === 'Google';
-});
-console.log(usrGoogle);
-var result = usuarios.map(function (usuario) {
-  usuario.idade *= 2;
-  return usuario;
-}).filter(function (usuario) {
-  if (usuario.idade < 50) return usuario;
-});
-console.log(result);
+console.log(auxPromise);

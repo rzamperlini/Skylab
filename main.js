@@ -1,33 +1,55 @@
-//ES6+ Módulo 01 - Exercício 02
+//ES6+ Módulo 01 - Exercício 03
 
-const usuarios = [
-    { nome: 'Diego', idade: 23, empresa: 'Rocketseat' },
-    { nome: 'Gabriel', idade: 15, empresa: 'Rocketseat' },
-    { nome: 'Lucas', idade: 30, empresa: 'Facebook' },
-   ];
+// 3.1
+// const arr = [1, 2, 3, 4, 5];
+// const newArr = arr.map(function(item) {
+//  return item + 10;
+// });
+// console.log(newArr);
 
-const idades = usuarios.map(usuario => (usuario.idade));
+// const aux1 = arr.map(item => item + 10);
+// console.log(aux1);
 
-console.log(idades);
+// // 3.2
+// // Dica: Utilize uma constante pra function
+// const usuario = { nome: 'Diego', idade: 23 };
+// function mostraIdade(usuario) {
+//  return usuario.idade;
+// }
 
-const usrRocket = usuarios.filter(usuario => {
-    if(usuario.empresa === 'Rocketseat' && usuario.idade > 18){
-        return usuario;
-    }
-})
+// const idade = mostraIdade(usuario);
+// console.log(idade);
 
-console.log(usrRocket);
+// const aux2 = () =>  usuario.idade;
+// console.log(aux2());
 
-const usrGoogle = usuarios.find(usuario  => usuario.empresa === 'Google');
+// 3.3
+// Dica: Utilize uma constante pra function
+/* const nome = "Diego";
+const idade = 23;
+function mostraUsuario(nome = 'Diego', idade = 18) {
+ return { nome, idade };
+}
+const user1 = mostraUsuario(nome, idade);
+const user2 = mostraUsuario(nome);
 
-console.log(usrGoogle);
+console.log(user1);
+console.log(user2);
 
-const result = usuarios.map(usuario => {
-                                usuario.idade *= 2;
-                                return usuario; })
-                        .filter(usuario => {
-                                if(usuario.idade < 50)
-                                    return usuario;});
+const aux3 = (nome,idade=18) => ({nome:nome, idade:idade});
+console.log(aux3(nome,idade));
+console.log(aux3(nome));
+ */
 
+// 3.4
+const promise = function() {
+    return new Promise(function(resolve, reject) {
+    return resolve();
+    })
+   }
 
-console.log(result);
+console.log(promise());
+   
+const auxPromise = new Promise((resolve, reject)=> resolve() );
+
+console.log(auxPromise);
