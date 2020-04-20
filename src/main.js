@@ -1,34 +1,39 @@
-//ES6+ - Módulo 03 - Exercício 01
+//ES6+ - Módulo 03 - Exercício 02
 
 import axios from "axios";
 
-
-// Função delay aciona o .then após 1s
-const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
-
-// function umPorSegundo() {
-//  delay().then(() => {
-//  console.log('1s');
-//  delay().then(() => {
-//  console.log('2s');
-//  delay().then(() => {
-//  console.log('3s');
-//  });
-//  })
-//  });
-// }
-// umPorSegundo();
+// function getUserFromGithub(user) {
+//     axios.get(`https://api.github.com/users/${user}`)
+//     .then(response => {
+//     console.log(response.data);
+//     })
+//     .catch(err => {
+//     console.log('Usuário não existe');
+//     })
+//    }
 
 
-async function umPorSegundo(){
 
-    await delay();
-    console.log('1s');
-    await delay();
-    console.log('2s');
-    await delay();
-    console.log('3s');
+async function getUserFromGithub(user){
+
+    try{
+       
+        const response = await axios.get(`https://api.github.com/users/${user}`);
+
+        console.log(response.data);
+
+    }
+    catch(err)
+    {
+        console.log('Usuário não existe.');
+    }
    
+
 }
 
-umPorSegundo();
+
+
+getUserFromGithub('diego3g');
+getUserFromGithub('diego3g124123');
+   
+
