@@ -2,30 +2,26 @@
 
 import axios from "axios";
 
-// class Github {
-//     static getRepositories(repo) {
-//     axios.get(`https://api.github.com/repos/${repo}`)
+// const buscaUsuario = usuario => {
+//     axios.get(`https://api.github.com/users/${user}`)
 //     .then(response => {
 //     console.log(response.data);
 //     })
 //     .catch(err => {
-//     console.log('Repositório não existe');
-//     })
-//     }
+//     console.log('Usuário não existe');
+//     });
 //    }
 
-class Github{
-    static async getRepositories(repo){
-        try{
-            const response = await axios.get(`https://api.github.com/users/${repo}/repos`);
+async function buscaUsuario(user){
 
-            console.log(response.data);
-        }
-        catch(err){
-            console.log('Repositório não existe.');
-        }
+    try{
+        const response = await axios.get(`https://api.github.com/users/${user}`);
+
+        console.log(response.data);
+    }
+    catch(err){
+        console.log('Usuário não existe.');
     }
 }
 
-Github.getRepositories('diego3g');
-Github.getRepositories('rzamperlini');
+buscaUsuario('diego3g');
