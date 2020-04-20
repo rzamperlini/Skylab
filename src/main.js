@@ -1,24 +1,34 @@
-//ES6+ - Módulo 03 - Configurando Axios
+//ES6+ - Módulo 03 - Exercício 01
 
 import axios from "axios";
 
-class Api {
 
-    static async getUserInfo(username){
+// Função delay aciona o .then após 1s
+const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
 
-        try{
+// function umPorSegundo() {
+//  delay().then(() => {
+//  console.log('1s');
+//  delay().then(() => {
+//  console.log('2s');
+//  delay().then(() => {
+//  console.log('3s');
+//  });
+//  })
+//  });
+// }
+// umPorSegundo();
 
-        
-        const response = await axios.get(`https://api.github.com/users/${username}`);
 
-        console.log(response);
-        }
-        catch(err){
-            console.warn('Erro na API');
-        }
-    }
+async function umPorSegundo(){
+
+    await delay();
+    console.log('1s');
+    await delay();
+    console.log('2s');
+    await delay();
+    console.log('3s');
+   
 }
 
-Api.getUserInfo('diego3');
-
-
+umPorSegundo();
