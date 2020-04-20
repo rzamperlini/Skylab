@@ -1,22 +1,24 @@
-//ES6+ - Módulo 03 - Async/Await
+//ES6+ - Módulo 03 - Configurando Axios
 
-const minhaPromise = () => new Promise((resolve,reject)=>{
-    setTimeout(()=>{resolve('TESTE')},2000);
-});
+import axios from "axios";
 
-// minhaPromise().then(response=> {console.log(response)})
-//                 .catch(err => {});
+class Api {
 
+    static async getUserInfo(username){
 
-async function executaPromise(){
-    console.log(await minhaPromise());
-    console.log(await minhaPromise());
-    console.log(await minhaPromise());
+        try{
+
+        
+        const response = await axios.get(`https://api.github.com/users/${username}`);
+
+        console.log(response);
+        }
+        catch(err){
+            console.warn('Erro na API');
+        }
+    }
 }
 
-executaPromise();
-
-
-
+Api.getUserInfo('diego3');
 
 
