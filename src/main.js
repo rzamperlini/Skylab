@@ -1,14 +1,20 @@
-//ES6+ - Módulo 02 - Import/Export
+//ES6+ - Módulo 03 - Async/Await
 
-//Exercício 01
-import ClasseUsuario, {idade as IdadeUsuario} from './functions';
+const minhaPromise = () => new Promise((resolve,reject)=>{
+    setTimeout(()=>{resolve('TESTE')},2000);
+});
 
-ClasseUsuario.info();
+// minhaPromise().then(response=> {console.log(response)})
+//                 .catch(err => {});
 
-const divElement = document.querySelector("div");
-const divText = document.createTextNode(IdadeUsuario);
 
-divElement.appendChild(divText);
+async function executaPromise(){
+    console.log(await minhaPromise());
+    console.log(await minhaPromise());
+    console.log(await minhaPromise());
+}
+
+executaPromise();
 
 
 
