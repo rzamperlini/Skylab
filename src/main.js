@@ -1,39 +1,31 @@
-//ES6+ - Módulo 03 - Exercício 02
+//ES6+ - Módulo 03 - Exercício 03
 
 import axios from "axios";
 
-// function getUserFromGithub(user) {
-//     axios.get(`https://api.github.com/users/${user}`)
+// class Github {
+//     static getRepositories(repo) {
+//     axios.get(`https://api.github.com/repos/${repo}`)
 //     .then(response => {
 //     console.log(response.data);
 //     })
 //     .catch(err => {
-//     console.log('Usuário não existe');
+//     console.log('Repositório não existe');
 //     })
+//     }
 //    }
 
+class Github{
+    static async getRepositories(repo){
+        try{
+            const response = await axios.get(`https://api.github.com/users/${repo}/repos`);
 
-
-async function getUserFromGithub(user){
-
-    try{
-       
-        const response = await axios.get(`https://api.github.com/users/${user}`);
-
-        console.log(response.data);
-
+            console.log(response.data);
+        }
+        catch(err){
+            console.log('Repositório não existe.');
+        }
     }
-    catch(err)
-    {
-        console.log('Usuário não existe.');
-    }
-   
-
 }
 
-
-
-getUserFromGithub('diego3g');
-getUserFromGithub('diego3g124123');
-   
-
+Github.getRepositories('diego3g');
+Github.getRepositories('rzamperlini');
