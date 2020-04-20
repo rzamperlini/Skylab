@@ -1,20 +1,7 @@
-//ES6+ Módulo 01 - Exercício 07
+//ES6+ - Módulo 02 - Webpack Server
 
-const nome = 'Diego';
-const idade = 23;
+import * as funcoes from './funcoes';
+// import somaFunction from './soma';
 
-const usuario = {
- nome: nome,
- idade: idade,
- cidade: 'Rio do Sul',
-};
-
-const usuario2 = {
-    nome,
-    idade,
-    cidade: 'Rio do Sul'
-};
-
-console.log(usuario);
-console.log(usuario2);
-
+console.log(funcoes.soma(3,3));
+console.log(funcoes.sub(5,3));
